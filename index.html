@@ -88,6 +88,23 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            background: url('photos/ltt-od-trakai-finish.jpg') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(15, 23, 42, 0.85) 0%, 
+                rgba(30, 41, 59, 0.7) 50%,
+                rgba(15, 23, 42, 0.85) 100%
+            );
+            z-index: 1;
         }
 
         .hero-content {
@@ -95,6 +112,7 @@
             z-index: 2;
             max-width: 900px;
             padding: 0 2rem;
+            position: relative;
         }
 
         .hero h1 {
@@ -133,6 +151,15 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        .stat-card[onclick] {
+            cursor: pointer;
+        }
+
+        .stat-card[onclick]:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
         }
 
         .stat-card::before {
@@ -254,6 +281,15 @@
             transition: all 0.3s ease;
         }
 
+        .timeline-content[onclick] {
+            cursor: pointer;
+        }
+
+        .timeline-content[onclick]:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
         .timeline-item:nth-child(even) .timeline-content {
             margin-left: auto;
         }
@@ -291,7 +327,7 @@
         /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -300,10 +336,11 @@
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            cursor: pointer;
         }
 
         .card::before {
@@ -317,47 +354,122 @@
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
         .card-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--accent-coral), var(--accent-cyan));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
+            height: 280px;
             position: relative;
             overflow: hidden;
+            background: #000;
         }
 
-        .card-image::before {
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.08);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        .card-image::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(
+                135deg, 
+                rgba(255, 107, 107, 0.3) 0%, 
+                rgba(78, 205, 196, 0.3) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-image::after {
+            opacity: 1;
         }
 
         .card-content {
             padding: 2rem;
+            position: relative;
         }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--accent-coral);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-title {
+            color: var(--accent-cyan);
         }
 
         .card-desc {
             color: var(--text-gray);
             line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .photo-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            padding: 1.5rem;
+        }
+
+        .photo-caption h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-coral);
+        }
+
+        .photo-caption p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* CTA Section */
@@ -426,6 +538,91 @@
             transform: translateY(-3px);
         }
 
+        /* Footer Section */
+        .footer-section {
+            position: relative;
+            margin-top: 0;
+        }
+
+        .footer-image {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .footer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.1);
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(15, 23, 42, 0.8) 0%, 
+                rgba(30, 41, 59, 0.6) 50%,
+                rgba(15, 23, 42, 0.8) 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: white;
+            max-width: 600px;
+        }
+
+        .footer-content h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-coral), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-stats {
+            font-size: 1rem;
+            color: var(--accent-coral);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-bottom {
+            background: var(--primary-blue);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-bottom p {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p:last-child {
+            margin-bottom: 0;
+            color: var(--accent-coral);
+            font-weight: 500;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .timeline::before {
@@ -453,6 +650,28 @@
             .cta-button {
                 display: block;
                 margin: 0.5rem auto;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-image {
+                height: 50vh;
+            }
+
+            .footer-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .footer-content p {
+                font-size: 1rem;
             }
         }
 
@@ -500,11 +719,11 @@
                     <span class="stat-number">730</span>
                     <span class="stat-label">Valandų Sporto 2024</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" onclick="showStatImage('photos/ironman-copenhagen-finish.jpg', 'Ironman Kopenhaga 9:20')">
                     <span class="stat-number">9:20</span>
                     <span class="stat-label">Ironman Kopenhaga</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" onclick="showStatImage('photos/london-marathon-finish.jpg', 'Londono Maratonas 2:39')">
                     <span class="stat-number">2:39</span>
                     <span class="stat-label">Londono Maratonas</span>
                 </div>
@@ -527,7 +746,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2021</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content" onclick="showStatImage('photos/ironman-703-sardegna-finish.jpg', 'Pirmasis Ironman 70.3 Sardinijoje')">
                         <h3 class="timeline-title">Pirmasis Ironman 70.3</h3>
                         <p class="timeline-desc">Sardinijoje užbaigiau pirmąjį Ironman 70.3 per 5:04. Svajonė tapo realybe!</p>
                     </div>
@@ -535,7 +754,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2022</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content" onclick="showStatImage('photos/ironman-703-tallinn-cycling.jpg', 'Sub-3 Maratonas ir 70.3 Pagerėjimas')">
                         <h3 class="timeline-title">Sub-3 Maratonas</h3>
                         <p class="timeline-desc">Paryžiuje pasiekiau sub-3 maratoną per 2:48, o Taline pagerėjau 70.3 laiką iki 4:37.</p>
                     </div>
@@ -568,40 +787,120 @@
         </div>
     </section>
 
-    <!-- Photos Section -->
+    <!-- Race Gallery Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Pagrindiniai Momentai</h2>
+            <h2 class="section-title">Varžybų Akimirkos</h2>
+            <div class="photo-grid">
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-copenhagen-finish.jpg" alt="Ironman Kopenhaga Finišas">
+                    <div class="photo-caption">
+                        <h4>Ironman Kopenhaga 9:20</h4>
+                        <p>Emocinga akimirka užbaigus pirmąjį pilną Ironman distancijos triatloną</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/london-marathon-finish.jpg" alt="Londono Maratonas">
+                    <div class="photo-caption">
+                        <h4>Londono Maratonas 2:39</h4>
+                        <p>Džiaugsmas pasiekus sub-2:40 rezultatą prestižiniame Londono maratone</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-703-warsaw-finish.jpg" alt="Varšuvos 70.3 Finišas">
+                    <div class="photo-caption">
+                        <h4>Pasaulio Čempionato Kvalifikacija</h4>
+                        <p>Varšuvos 70.3 per 4:13 - kelialapė į Marbellą!</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-copenhagen-cycling.jpg" alt="Kopenhagos Dviračių Etapas">
+                    <div class="photo-caption">
+                        <h4>Ironman Dviračių Disciplina</h4>
+                        <p>180 km dviračių etapas Kopenhagoje - ištestas aerodinaminės pozicijos</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-703-sardegna-swimming.jpg" alt="Sardinijos Plaukimas">
+                    <div class="photo-caption">
+                        <h4>Sardinijos 70.3 Plaukimas</h4>
+                        <p>Pirmojo 70.3 plaukimas Viduržemio jūroje - svajonės pradžia</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-703-tallinn-cycling.jpg" alt="Talino Dviračiai">
+                    <div class="photo-caption">
+                        <h4>Talino 70.3 - 4:37</h4>
+                        <p>Estijos gamtos vaizdai ir pagerėjęs laikas - nuosekli pažanga</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ltt-od-trakai-cycling.jpg" alt="Trakų Dviračiai">
+                    <div class="photo-caption">
+                        <h4>Lietuvos Čempionatas Trakuose</h4>
+                        <p>Namų trasoje per Trakų istorinį parką - 6 vieta šalyje</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card fade-in">
+                    <img src="photos/ironman-703-warsaw-swimming.jpg" alt="Varšuvos Plaukimas">
+                    <div class="photo-caption">
+                        <h4>Varšuvos 70.3 Startas</h4>
+                        <p>Ramus startas prieš istorinį rezultatą - qualification race!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Moments -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Išskirtiniai Momentai</h2>
             <div class="cards-grid">
                 <div class="card fade-in">
-                    <div class="card-image">IRONMAN KOPENHAGA 9:20</div>
+                    <div class="card-image">
+                        <img src="photos/Image 14.jpg" alt="Red Bull Finišas">
+                    </div>
                     <div class="card-content">
-                        <h3 class="card-title">Pirmasis Ironman</h3>
-                        <p class="card-desc">226 kilometrų kelionė Kopenhagoje - neįtikėtinas išbandymas ir pasiekimas</p>
+                        <h3 class="card-title">Pasaulio Čempionato Kvalifikacija</h3>
+                        <p class="card-desc">Varšuvos 70.3 per 4:13 atvėrė duris į pasaulio čempionatą Marbelloj - svajonė tapa realybe</p>
                     </div>
                 </div>
                 
                 <div class="card fade-in">
-                    <div class="card-image">LONDONO MARATONAS 2:39</div>
+                    <div class="card-image">
+                        <img src="photos/Image 7.jpg" alt="Finišo Linija">
+                    </div>
                     <div class="card-content">
-                        <h3 class="card-title">Prestižinis Maratonas</h3>
-                        <p class="card-desc">Vienas svarbiausių pasiekimų pasaulio garsiausiam maratone</p>
+                        <h3 class="card-title">Konsistencija ir Disciplina</h3>
+                        <p class="card-desc">730 valandų sporto per 2024 metus - įrodymas, kad nuoseklumas veda į sėkmę</p>
                     </div>
                 </div>
                 
                 <div class="card fade-in">
-                    <div class="card-image">PASAULIO ČEMPIONATAS</div>
+                    <div class="card-image">
+                        <img src="photos/Image 6.jpg" alt="Time Trial">
+                    </div>
                     <div class="card-content">
-                        <h3 class="card-title">Marbella 2025</h3>
-                        <p class="card-desc">Kvalifikacija į 70.3 pasaulio čempionatą Varšuvoje per 4:13</p>
+                        <h3 class="card-title">Technologijų ir Treningu Sintezė</h3>
+                        <p class="card-desc">Modernūs sprendimai ir klasikinis darbas - tobula kombinacija rezultatams</p>
                     </div>
                 </div>
                 
                 <div class="card fade-in">
-                    <div class="card-image">TRENERYSTĖ</div>
+                    <div class="card-image">
+                        <img src="photos/Image 13.jpg" alt="Grupės Treniruotė">
+                    </div>
                     <div class="card-content">
                         <h3 class="card-title">Bendruomenės Kūrimas</h3>
-                        <p class="card-desc">Padėdamas kitiems atletams pasiekti savo tikslus</p>
+                        <p class="card-desc">Treniruodamas kitus atletų padėdu kurti stiprią triatlono bendruomenę Lietuvoje</p>
                     </div>
                 </div>
             </div>
@@ -656,11 +955,29 @@
             
             <div class="social-links">
                 <a href="https://www.instagram.com/zarauskas/" target="_blank" class="social-link">📷</a>
-                <a href="https://www.strava.com/athletes/zarauskas" target="_blank" class="social-link">🚴</a>
+                <a href="https://www.strava.com/athletes/53605842" target="_blank" class="social-link">🚴</a>
                 <a href="mailto:dziugas.zarauskas@gmail.com" class="social-link">✉️</a>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Lietuva • Triatlonininkas • Svajonių Siekėjas</h3>
+                    <p>Nuo mėgėjo iki pasaulio čempionato - kelionė tęsiasi</p>
+                    <div class="footer-stats">
+                        <span>2020-2025 • 5 Metų Transformacija</span>
+                    </div>
+                </div>
+                <br>
+                <p>&copy; 2025 Džiugas Zarauskas. Visos teisės saugomos.</p>
+                <p>Sukurta su aistra triatloui ir sportui.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Smooth scrolling and animations
@@ -768,6 +1085,137 @@
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
+
+            // Photo card click effects
+            document.querySelectorAll('.photo-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    const caption = this.querySelector('.photo-caption h4').textContent;
+                    
+                    // Simple lightbox effect
+                    const lightbox = document.createElement('div');
+                    lightbox.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        cursor: pointer;
+                        backdrop-filter: blur(10px);
+                    `;
+                    
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxImg.style.cssText = `
+                        max-width: 90%;
+                        max-height: 90%;
+                        object-fit: contain;
+                        border-radius: 10px;
+                        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                    `;
+                    
+                    lightbox.appendChild(lightboxImg);
+                    document.body.appendChild(lightbox);
+                    
+                    // Close on click
+                    lightbox.addEventListener('click', () => {
+                        document.body.removeChild(lightbox);
+                    });
+                    
+                    // Close on escape
+                    document.addEventListener('keydown', function escHandler(e) {
+                        if (e.key === 'Escape') {
+                            if (document.body.contains(lightbox)) {
+                                document.body.removeChild(lightbox);
+                            }
+                            document.removeEventListener('keydown', escHandler);
+                        }
+                    });
+                });
+            });
+
+            // Smooth reveal animations on scroll
+            const revealElements = document.querySelectorAll('.photo-card, .card');
+            revealElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+            });
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1             });
+
+            // Function to show stat images
+            window.showStatImage = function(imageSrc, title) {
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    cursor: pointer;
+                    backdrop-filter: blur(10px);
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = imageSrc;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 80%;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                `;
+                
+                const lightboxTitle = document.createElement('h3');
+                lightboxTitle.textContent = title;
+                lightboxTitle.style.cssText = `
+                    color: white;
+                    font-size: 1.5rem;
+                    margin-top: 1rem;
+                    text-align: center;
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                lightbox.appendChild(lightboxTitle);
+                document.body.appendChild(lightbox);
+                
+                // Close on click
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+                
+                // Close on escape
+                document.addEventListener('keydown', function escHandler(e) {
+                    if (e.key === 'Escape') {
+                        if (document.body.contains(lightbox)) {
+                            document.body.removeChild(lightbox);
+                        }
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                });
+            };
+
+            revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
 </body>
