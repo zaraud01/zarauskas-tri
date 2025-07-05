@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Džiugas Zarauskas - Triatlono Kelionė</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -24,7 +27,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: var(--text-light);
             line-height: 1.6;
@@ -712,12 +715,12 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Džiugas Zarauskas</h1>
-            <p class="hero-subtitle">Nuo Mėgėjo iki Pasaulio Čempionato per 5 Metus</p>
+            <p class="hero-subtitle">Triatlono kelionė iki Ironman 70.3 pasaulio čempionato Marbeljoj</p>
             
             <div class="hero-stats">
-                <div class="stat-card">
-                    <span class="stat-number">730</span>
-                    <span class="stat-label">Valandų Sporto 2024</span>
+                <div class="stat-card" onclick="showStatImage('photos/ironman-703-warsaw-finish.jpg', 'Ironman 70.3 Varšuva 4:13')">
+                    <span class="stat-number">4:13</span>
+                    <span class="stat-label">Ironman 70.3 Varšuva</span>
                 </div>
                 <div class="stat-card" onclick="showStatImage('photos/ironman-copenhagen-finish.jpg', 'Ironman Kopenhaga 9:20')">
                     <span class="stat-number">9:20</span>
@@ -734,209 +737,53 @@
     <!-- Journey Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Mano Kelionė</h2>
+            <h2 class="section-title">Mano kelionė</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">2020</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content" onclick="showStatImage('photos/strava-first.png', 'Pradžia - pirmasis activity Stravoje')">
                         <h3 class="timeline-title">Pradžia</h3>
-                        <p class="timeline-desc">Liepą pradėjau Strava kelionę su tikslu įveikti Ironman 70.3. Rugsėjo mėnesį užbaigiau pirmąjį maratoną per 3:28.</p>
+                        <p class="timeline-desc">2020 metų Liepą pradėjau Strava kelionę su tikslu kada nors įveikti Ironman 70.3. Pradėta nuo tempo treniruotės Vingio parke su tenisui skirtais batais. Rugsėjo mėnesį užbaigiau pirmąjį maratoną per 3:28 Vilniuje.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2021</div>
                     <div class="timeline-content" onclick="showStatImage('photos/ironman-703-sardegna-finish.jpg', 'Pirmasis Ironman 70.3 Sardinijoje')">
-                        <h3 class="timeline-title">Pirmasis Ironman 70.3</h3>
-                        <p class="timeline-desc">Sardinijoje užbaigiau pirmąjį Ironman 70.3 per 5:04. Svajonė tapo realybe!</p>
+                        <h3 class="timeline-title">Pirmasis Ironman 70.3 Sardinijoj</h3>
+                        <p class="timeline-desc">Sardinijoje užbaigiau pirmąjį Ironman 70.3 per 5:04. Pirmas plaukimas jūroje, elevation gain rekordai Sardinijos kalnuose ir sutraukti raumenys pirmuose bėgimo kilometruose - koks eventas!</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2022</div>
-                    <div class="timeline-content" onclick="showStatImage('photos/ironman-703-tallinn-cycling.jpg', 'Sub-3 Maratonas ir 70.3 Pagerėjimas')">
-                        <h3 class="timeline-title">Sub-3 Maratonas</h3>
-                        <p class="timeline-desc">Paryžiuje pasiekiau sub-3 maratoną per 2:48, o Taline pagerėjau 70.3 laiką iki 4:37.</p>
+                    <div class="timeline-content" onclick="showStatImage('photos/ironman-703-tallinn-cycling.jpg', 'Sub-3 maratonas ir 70.3 lietuvių pamėgtam Taline')">
+                        <h3 class="timeline-title">Sub-3 maratonas ir antrasis Ironman 70.3 Taline</h3>
+                        <p class="timeline-desc">Pradėtas darbas su treneriu ir vienas gražiausių maratonų Paryžiuje - 2:48. Po 4 mėnesiu Taline pavyko pagerinti Ironman 70.3 rezultatą iki 4:37 ir užimta 8 vieta amžiaus grupėj!</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2023</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Maratonų Metai</h3>
-                        <p class="timeline-desc">Londono maratonas per 2:39 ir Frankfurto maratonas per 2:48. Specializacija bėgime.</p>
+                    <div class="timeline-content" onclick="showStatImage('photos/london-marathon-finish.jpg', 'Londone buvo sunku nuslėpt šitą šypseną jau įbėgus į St. James Park')"></div>
+                        <h3 class="timeline-title">Maratonų metai</h3>
+                        <p class="timeline-desc">Taip patiko bėgimas, kad norėjau šiuos metus skirti maratonams! Londono maratoną per 2:39 iki šių dienų atsimenu kaip vieną geriausių savo eventų! Dissapointing metų pabaiga Frankfurte per 2:48 - iki šiol turiu beefą su šitu miestu. </p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2024</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Ironman ir Trenerystė</h3>
-                        <p class="timeline-desc">Kopenhagoje užbaigiau pirmąjį Ironman per 9:20. Pradėjau treniruoti kitus. 730 valandų sporto!</p>
+                    <div class="timeline-content" onclick="showStatImage('photos/ironman-copenhagen-swimming.jpg', 'Pirmas Ironman eventas, kuriame buvau toks patenkintas plaukime - slowly, bet getting there')"></div>
+                        <h3 class="timeline-title">Pirmas Ironman</h3>
+                        <p class="timeline-desc">Kopenhagoje užbaigiau pirmąjį Ironman per 9:20. Pradėjau treniruoti kitus siekti savo svajonių. 730 valandų sporto Stravoj tikrai neprailgo!</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content" onclick="showStatImage('photos/ironman-703-warsaw-finish.jpg', 'Pirmas kartas, kai buvau toks patenkintas bėgime - negative split ir pakilimas į 20 į 12 vietą amžiaus grupėj')"></div>
                         <h3 class="timeline-title">Pasaulio Čempionatas</h3>
-                        <p class="timeline-desc">Varšuvoje per 4:13 kvalifikavausi į 70.3 pasaulio čempionatą Marbelloj. 6 vieta Lietuvoje (2:07 PB).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Race Gallery Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Varžybų Akimirkos</h2>
-            <div class="photo-grid">
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-copenhagen-finish.jpg" alt="Ironman Kopenhaga Finišas">
-                    <div class="photo-caption">
-                        <h4>Ironman Kopenhaga 9:20</h4>
-                        <p>Emocinga akimirka užbaigus pirmąjį pilną Ironman distancijos triatloną</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/london-marathon-finish.jpg" alt="Londono Maratonas">
-                    <div class="photo-caption">
-                        <h4>Londono Maratonas 2:39</h4>
-                        <p>Džiaugsmas pasiekus sub-2:40 rezultatą prestižiniame Londono maratone</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-703-warsaw-finish.jpg" alt="Varšuvos 70.3 Finišas">
-                    <div class="photo-caption">
-                        <h4>Pasaulio Čempionato Kvalifikacija</h4>
-                        <p>Varšuvos 70.3 per 4:13 - kelialapė į Marbellą!</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-copenhagen-cycling.jpg" alt="Kopenhagos Dviračių Etapas">
-                    <div class="photo-caption">
-                        <h4>Ironman Dviračių Disciplina</h4>
-                        <p>180 km dviračių etapas Kopenhagoje - ištestas aerodinaminės pozicijos</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-703-sardegna-swimming.jpg" alt="Sardinijos Plaukimas">
-                    <div class="photo-caption">
-                        <h4>Sardinijos 70.3 Plaukimas</h4>
-                        <p>Pirmojo 70.3 plaukimas Viduržemio jūroje - svajonės pradžia</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-703-tallinn-cycling.jpg" alt="Talino Dviračiai">
-                    <div class="photo-caption">
-                        <h4>Talino 70.3 - 4:37</h4>
-                        <p>Estijos gamtos vaizdai ir pagerėjęs laikas - nuosekli pažanga</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ltt-od-trakai-cycling.jpg" alt="Trakų Dviračiai">
-                    <div class="photo-caption">
-                        <h4>Lietuvos Čempionatas Trakuose</h4>
-                        <p>Namų trasoje per Trakų istorinį parką - 6 vieta šalyje</p>
-                    </div>
-                </div>
-                
-                <div class="photo-card fade-in">
-                    <img src="photos/ironman-703-warsaw-swimming.jpg" alt="Varšuvos Plaukimas">
-                    <div class="photo-caption">
-                        <h4>Varšuvos 70.3 Startas</h4>
-                        <p>Ramus startas prieš istorinį rezultatą - qualification race!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Moments -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Išskirtiniai Momentai</h2>
-            <div class="cards-grid">
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="photos/Image 14.jpg" alt="Red Bull Finišas">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Pasaulio Čempionato Kvalifikacija</h3>
-                        <p class="card-desc">Varšuvos 70.3 per 4:13 atvėrė duris į pasaulio čempionatą Marbelloj - svajonė tapa realybe</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="photos/Image 7.jpg" alt="Finišo Linija">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Konsistencija ir Disciplina</h3>
-                        <p class="card-desc">730 valandų sporto per 2024 metus - įrodymas, kad nuoseklumas veda į sėkmę</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="photos/Image 6.jpg" alt="Time Trial">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Technologijų ir Treningu Sintezė</h3>
-                        <p class="card-desc">Modernūs sprendimai ir klasikinis darbas - tobula kombinacija rezultatams</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="photos/Image 13.jpg" alt="Grupės Treniruotė">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Bendruomenės Kūrimas</h3>
-                        <p class="card-desc">Treniruodamas kitus atletų padėdu kurti stiprią triatlono bendruomenę Lietuvoje</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Kodėl Verta Remti</h2>
-            <div class="cards-grid">
-                <div class="card fade-in">
-                    <div class="card-content">
-                        <h3 class="card-title">Nuoseklumas</h3>
-                        <p class="card-desc">730 valandų sporto per 2024 metus. Dokumentuota disciplina ir atsidavimas.</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-content">
-                        <h3 class="card-title">Rezultatai</h3>
-                        <p class="card-desc">Nuo 3:28 maratono iki pasaulio čempionato kvalifikacijos per 5 metus.</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-content">
-                        <h3 class="card-title">Autentiškas Turinys</h3>
-                        <p class="card-desc">Tikra transformacijos istorija, kuri įkvepia kitus siekti savo tikslų.</p>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-content">
-                        <h3 class="card-title">Bendruomenė</h3>
-                        <p class="card-desc">Aktyvus trenerystės darbas, kuris kuria stiprią atletų bendruomenę.</p>
+                        <p class="timeline-desc">Ironman 70.3 Varšuvoj per 4:13 leido kvalifikuotis į pirmą savo 70.3 pasaulio čempionatą Marbeljoj. 6 vieta Lietuvoje Olimpinės distancijos čempionate (2:07 PB).</p>
                     </div>
                 </div>
             </div>
@@ -966,15 +813,15 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="footer-content">
-                    <h3>Lietuva • Triatlonininkas • Svajonių Siekėjas</h3>
-                    <p>Nuo mėgėjo iki pasaulio čempionato - kelionė tęsiasi</p>
+                    <h3>Lietuva • Triatlonininkas • Kartais bėgikas</h3>
+                    <p>Kelionė iki pasaulio čempionato tęsiasi</p>
                     <div class="footer-stats">
-                        <span>2020-2025 • 5 Metų Transformacija</span>
+                        <span>2020-2025 • 5 metų transformacija</span>
                     </div>
                 </div>
                 <br>
                 <p>&copy; 2025 Džiugas Zarauskas. Visos teisės saugomos.</p>
-                <p>Sukurta su aistra triatloui ir sportui.</p>
+                <p>Love triathlon.</p>
             </div>
         </div>
     </footer>
